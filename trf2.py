@@ -2,12 +2,13 @@
 
 import csv
 import json
-
-path_file = "C:\\Users\\mathe\\Desktop\\"
+#alterar para o diretorio desejado
+path_file = "C:\\Users\\...\\Desktop\\"
 
 def conversor(csvf,jsonf):
+    #cria o objeto data
     data = {}
-
+    #percorre o arquivo csv e aloca as linhas
     with open(csvf, encoding='utf-8') as csv_file:
         csv_new = csv.DictReader(csv_file)
         n = 0
@@ -15,7 +16,7 @@ def conversor(csvf,jsonf):
             key = n
             n = n + 1
             data[key] = rows
-
+    #grava cada linha no json
     with open(jsonf, 'w', encoding='utf-8') as json_file:
         json_file.write(json.dumps(data, indent=4))
 
